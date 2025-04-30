@@ -1,0 +1,28 @@
+@model IEnumerable<FlexiCareManager.Models.Appointment>
+
+<h4>Appointments</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.When)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Physio)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.When)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Physio!.Name)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

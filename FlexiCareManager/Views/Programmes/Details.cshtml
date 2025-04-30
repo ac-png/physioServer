@@ -1,0 +1,35 @@
+@model FlexiCareManager.Models.Programme
+
+@{
+    ViewData["Title"] = "Details";
+    ViewData["ProgrammeId"] = Model.Id;
+ }
+
+<h1>Programme</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Duration)
+            <small class"text-muted">days</small>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</div>
+<hr />
+@await Html.PartialAsync("../ProgrammeExercises/_Index.cshtml", Model!.Exercises)
+<hr />
+@await Html.PartialAsync("../ProgrammeTreatments/_Index.cshtml", Model!.Treatments)

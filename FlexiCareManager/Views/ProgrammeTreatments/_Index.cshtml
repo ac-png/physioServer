@@ -1,0 +1,34 @@
+@model IEnumerable<FlexiCareManager.Models.ProgrammeTreatment>
+
+@{
+    ViewData["Title"] = "Programme Treatments";
+    var programmeId = @ViewData["ProgrammeId"];
+}
+
+<h4>Programmes Treatments</h4>
+
+<p>
+    <a asp-action="Create" asp-controller="ProgrammeTreatments" asp-route-Id="@programmeId" class="btn btn-primary btn-sm">New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Treatment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Treatment!.Name)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-controller="ProgrammeTreatments" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

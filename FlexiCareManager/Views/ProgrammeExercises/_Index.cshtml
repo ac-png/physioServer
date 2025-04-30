@@ -1,0 +1,51 @@
+@model IEnumerable<FlexiCareManager.Models.ProgrammeExercise>
+
+@{
+    ViewData["Title"] = "Programme Exercises";
+}
+
+<h4>Programmes Exercises</h4>
+
+<p>
+    <a asp-action="Create" asp-controller="ProgrammeExercises" asp-route-Id=@ViewData["ProgrammeId"]
+        class="btn btn-primary btn-sm">New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Exercise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" class="text-decoration-none" asp-controller="ProgrammeExercises"
+                        asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Exercise!.Name)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="ProgrammeExercises" asp-route-id="@item.Id"
+                        class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-controller="ProgrammeExercises" asp-route-id="@item.Id"
+                        class="btn btn-secondary btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

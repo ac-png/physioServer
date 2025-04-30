@@ -1,0 +1,40 @@
+@model FlexiCareManager.Models.Patient
+
+@{
+    ViewData["Title"] = "Details";
+    ViewData["PatientId"] = Model.Id;
+
+}
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AllowNotifications)
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.AllowNotifications ? "Yes" : "No")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</div>
+<hr />
+@await Html.PartialAsync("_Appointments.cshtml", Model!.Appointments)
+<hr />
+@await Html.PartialAsync("../PatientProgrammes/_Index.cshtml", Model!.Programmes)

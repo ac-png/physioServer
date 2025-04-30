@@ -1,0 +1,42 @@
+@model FlexiCareManager.Models.ProgrammeExercise
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div>
+    <h4>Are you sure you want to remove this Exercise from the Programme?</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Exercise)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Exercise!.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Programme)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Programme!.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Day)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Day)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Details" asp-controller="Programmes" asp-route-id="@Model!.ProgrammeId" class="btn btn-secondary">Back</a>
+    </form>
+</div>

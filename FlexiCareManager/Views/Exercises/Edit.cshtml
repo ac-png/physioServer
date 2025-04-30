@@ -1,0 +1,93 @@
+@model FlexiCareManager.Models.Exercise
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Exercise</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExerciseCategoryId" class="control-label"></label>
+                <select asp-for="ExerciseCategoryId" class="form-control"
+                    asp-items="ViewBag.ExerciseCategoryId"></select>
+                <span asp-validation-for="ExerciseCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reps" class="control-label"></label>
+                <input asp-for="Reps" class="form-control" />
+                <span asp-validation-for="Reps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sets" class="control-label"></label>
+                <input asp-for="Sets" class="form-control" />
+                <span asp-validation-for="Sets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Frequency" class="control-label"></label>
+                <input asp-for="Frequency" class="form-control" />
+                <span asp-validation-for="Frequency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rest" class="control-label"></label>
+                <input asp-for="Rest" class="form-control" />
+                <span asp-validation-for="Rest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Equipment" class="control-label"></label>
+                <textarea asp-for="Equipment" class="form-control" rows="5" cols="50"></textarea>
+                <span asp-validation-for="Equipment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MusclesWorked" class="control-label"></label>
+                <textarea asp-for="MusclesWorked" class="form-control" rows="5" cols="50"></textarea>
+                <span asp-validation-for="MusclesWorked" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Benefits" class="control-label"></label>
+                <textarea asp-for="Benefits" class="form-control" rows="5" cols="50"></textarea>
+                <span asp-validation-for="Benefits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HowToPerform" class="control-label"></label>
+                <textarea asp-for="HowToPerform" class="form-control" rows="5" cols="50"></textarea>
+                <span asp-validation-for="HowToPerform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tips" class="control-label"></label>
+                <textarea asp-for="Tips" class="form-control" rows="5" cols="50"></textarea>
+                <span asp-validation-for="Tips" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThumbnailUrl" class="control-label"></label>
+                <textarea asp-for="ThumbnailUrl" class="form-control" rows="2" cols="50"></textarea>
+                <span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoUrl" class="control-label"></label>
+                <textarea asp-for="VideoUrl" class="form-control" rows="2" cols="50"></textarea>
+                <span asp-validation-for="VideoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

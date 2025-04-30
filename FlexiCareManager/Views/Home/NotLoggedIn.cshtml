@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Physio Manager";
+}
+<h4>You don't appear to be logged in, here are a few accounts to try</h4> 
+<ul>
+    <li>Administrator: alice.governor@flexicare.ie Password: Password1!</li>
+    <li>Physio: alice.legg@flexicare.ie Password: Password1!</li>
+    <li>Patient: alice.walker@patient.ie Password: Password1!</li>
+</ul>
