@@ -6,8 +6,16 @@ using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+// builder.Services.AddDbContext<FlexiCareManagerContext>(options =>
+//     options.UseSqlite(builder.Configuration.GetConnectionString("FlexiCareManagerContext") ?? throw new InvalidOperationException("Connection string 'FlexiCareManagerContext' not found.")));
+
+var connection = String.Empty;
+
+builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
+connection = builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING");
+
 builder.Services.AddDbContext<FlexiCareManagerContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("FlexiCareManagerContext") ?? throw new InvalidOperationException("Connection string 'FlexiCareManagerContext' not found.")));
+    options.UseSqlServer(connection));
 
 builder.Services
     .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
