@@ -6,4 +6,5 @@ To run the API,
 To run the backend, 
 - open another terminal
 - cd FlexiCareManager
+- dotnet ef database update
 - dotnet watch
